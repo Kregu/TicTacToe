@@ -8,4 +8,5 @@ public interface View {
 
     void showGameName ();
 
+    void showStartMenu ();
 }

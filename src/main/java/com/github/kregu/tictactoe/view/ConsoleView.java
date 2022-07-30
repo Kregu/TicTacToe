@@ -11,7 +11,7 @@ public class ConsoleView implements View {
 
   static final Controller controller = new Controller();
   static Scanner input = new Scanner(System.in);
-  public static String getStringInput() {
+  public String getStringInput() {
     return input.nextLine();
   }
 
@@ -34,7 +34,13 @@ public class ConsoleView implements View {
     );
   }
 
-
+  public void showStartMenu() {
+    System.out.println("""
+                Enter:
+                S: Start
+                X: Exit
+                """);
+  }
   public boolean move(Board board, Player[] players) {
     Player currentPlayer = controller.currentPlayer(board, players);
     int[] coordinate = new int[2];
