@@ -6,7 +6,7 @@ import com.github.kregu.tictactoe.model.Player;
 
 import java.util.Scanner;
 
-public class ConsoleView {
+public class ConsoleView implements View {
 
 
   static final Controller controller = new Controller();
@@ -16,9 +16,22 @@ public class ConsoleView {
   }
 
 
-  public void show(Board board) {
+  public void showBoard(Board board) {
     clearConsole();
     System.out.println(board);
+  }
+
+  public void showGameName() {
+    System.out.println("""
+                    #######                 #######                 #######
+                       #        #     ####     #       ##     ####     #      ####   ######
+                       #        #    #    #    #      #  #   #    #    #     #    #  #
+                       #        #    #         #     #    #  #         #     #    #  #####
+                       #        #    #         #     ######  #         #     #    #  #
+                       #        #    #    #    #     #    #  #    #    #     #    #  #
+                       #        #     ####     #     #    #   ####     #      ####   ######
+            """
+    );
   }
 
 
@@ -45,7 +58,7 @@ public class ConsoleView {
     if (!controller.checkCollision(coordinate, board)){
       board.changeBoard(coordinate, currentPlayer.name());
     }
-    show(board);
+    showBoard(board);
 
     return !controller.isGameOver(board,currentPlayer);
   }
