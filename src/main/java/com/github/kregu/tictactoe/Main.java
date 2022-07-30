@@ -12,9 +12,9 @@ public class Main {
     var board = new Board();
     Player[] players = {new Player('X'), new Player('0')};
 
-    view.show(board);
+    view.showBoard(board);
     while (view.move(board, players)) {
-      view.show(board);
+      view.showBoard(board);
     }
   }
 }
